@@ -30,15 +30,19 @@ export const usesAvailableLetters = (input, lettersInHand) => {
   // Implement this method for wave 2
   let workingLettersInHand = JSON.parse(JSON.stringify(lettersInHand))
   input = input.toUpperCase() 
-
+  
   for (let i = 0; i < input.length; i++) {
-    if (input[i] in workingLettersInHand) {
-      letterIndex = workingLettersInHand.indexOf(input[i])
+    console.log("input[i]: ", input[i])
+    console.log("i: ", i)
+    if (workingLettersInHand.includes(input[i]) === true) {
+      console.log("initial letters: ", workingLettersInHand)
+      let letterIndex = workingLettersInHand.indexOf(input[i])
       workingLettersInHand.splice(letterIndex,1)
-    } else {
+      console.log("remaining letters: ", workingLettersInHand)
+    } else if (workingLettersInHand.includes(input[i]) === false) {
         return false
     }
-  }
+  } 
   return true
 };
 
