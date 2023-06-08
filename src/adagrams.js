@@ -13,8 +13,7 @@ export const drawLetters = () => {
   for (let i = 0; i < 10; i++){
     const drawnLetter = workingLetterPool[Math.floor(Math.random()*workingLetterPool.length)]
     hand.push(drawnLetter)
-    const drawnLetterIndex = workingLetterPool.indexOf(drawnLetter)
-    workingLetterPool.splice(drawnLetterIndex,1)
+    workingLetterPool.splice(workingLetterPool.indexOf(drawnLetter),1)
   }
   return hand
 };
