@@ -25,6 +25,7 @@ export const usesAvailableLetters = (input, lettersInHand) => {
   
   for (let letter of input) {
     let inHand = workingLettersInHand.includes(letter)
+    
     if(inHand) {
       workingLettersInHand.splice(workingLettersInHand.indexOf(letter),1)
     } else {
@@ -48,7 +49,7 @@ export const scoreWord = (word) => {
       Y: 4, Z: 10, "":0
     }
 
-  for (let letter of word) {
+  for (const letter of word) {
       score += letterScore[letter]
   }
   
@@ -62,7 +63,7 @@ export const highestScoreFrom = (words) => {
   let bestWord = ""
   let highestScore = 0
 
-  for (let word of words) {
+  for (const word of words) {
     let tempScore = scoreWord(word)
 
     if (tempScore > highestScore) {
