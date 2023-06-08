@@ -24,10 +24,10 @@ export const usesAvailableLetters = (input, lettersInHand) => {
   input = input.toUpperCase() 
   
   for (let letter of input) {
-    if (workingLettersInHand.includes(letter) === true) {
-      let letterIndex = workingLettersInHand.indexOf(letter)
-      workingLettersInHand.splice(letterIndex,1)
-    } else if (workingLettersInHand.includes(letter) === false) {
+    let inHand = workingLettersInHand.includes(letter)
+    if(inHand) {
+      workingLettersInHand.splice(workingLettersInHand.indexOf(letter),1)
+    } else {
         return false
     }
   } 
@@ -68,13 +68,11 @@ export const highestScoreFrom = (words) => {
     if (tempScore > highestScore) {
       highestScore = tempScore
       bestWord = word
-
     } else if (tempScore === highestScore) {
       if(bestWord.length != 10 && (word.length === 10 || word.length < bestWord.length)){
         bestWord = word
       }
     }
-
   }
   return {"score": highestScore, "word": bestWord}
 };
