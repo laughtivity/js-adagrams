@@ -1,3 +1,5 @@
+// *** = for future refactors
+
 const letterPool = ['A','A','A','A','A','A','A','A','A','B','B','C','C','D',
 'D','D','D','E','E','E','E','E','E','E','E','E','E','E','E','F',
 'F','G','G','G','H','H','I','I','I','I','I','I','I','I','I','J',
@@ -6,6 +8,11 @@ const letterPool = ['A','A','A','A','A','A','A','A','A','B','B','C','C','D',
 'S','S','T','T','T','T','T','T','U','U','U','U','V','V','W','W',
 'X','Y','Y','Z']
 
+// *** use .fill(key,0) can be used to fill an array with a dictionary ***
+// OBJECTIVE: draw 10 random letters from letterPool
+//    deep copies a letter pool for game. Then drew random letter by length in array.
+//    Added letter to hand array and removed it from cloned letter pool
+// RETURNS: hand(ARRAY)
 export const drawLetters = () => {
   let workingLetterPool = JSON.parse(JSON.stringify(letterPool))
   let hand = []
@@ -18,6 +25,11 @@ export const drawLetters = () => {
   return hand
 };
 
+// OBJECTIVE: check if the letter from input is in hand
+//    deep copies the hand drawn. makes the input into upper case. check if each letter
+//    is inside the copied hand and uses it as a conditional to return false or splice
+//    if false is never returned then it will return true
+// RETURNS: BOOL
 export const usesAvailableLetters = (input, lettersInHand) => {
   let workingLettersInHand = JSON.parse(JSON.stringify(lettersInHand))
   input = input.toUpperCase() 
@@ -34,6 +46,11 @@ export const usesAvailableLetters = (input, lettersInHand) => {
   return true
 };
 
+// OBJECTIVE: adds up the score for each letter in word provided
+//    creates a new score variable to count and be returned. changes word to uppercase
+//    for each letter the function adds the value of the letter from the score dictionary
+//    additional points for a word with 7 or more letters
+// RETURNS: score(NUM)
 export const scoreWord = (word) => {
   let score = 0
   word = word.toUpperCase()
@@ -58,6 +75,11 @@ export const scoreWord = (word) => {
   return score;
 };
 
+// OBJECTIVE: determines the winning word and the score
+//    iterates through the list of words. calls scoreWord() to determine the score
+//    for each word and compare it to the highestScore. Breaks tie if the score is the same
+//    returns the highest score and best word
+// RETURN:  highestScore(NUM), bestWord(STR) in special data structure
 export const highestScoreFrom = (words) => {
   let bestWord = ""
   let highestScore = 0
