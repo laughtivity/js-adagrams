@@ -50,7 +50,7 @@ export const scoreWord = (word) => {
   // Implement this method for wave 3
   let score = 0
   word = word.toUpperCase()
-  console.log("word: " ,word)
+  // console.log("word: " ,word)
 
   const letterScore = {
       A: 1,
@@ -79,20 +79,20 @@ export const scoreWord = (word) => {
       X: 8,
       Y: 4,
       Z: 10,
+      "":0
     }
-  console.log("word length: ", word.length)
+  // console.log("word length: ", word.length)
   // if (word.length == 0) {
   //   console.log(score)
   //   return score;
   // } else 
-  if (word.length > 0) {
-    for (let letter of word) {
+  for (let letter of word) {
       // console.log(letter)
       score += letterScore[letter]
       // console.log(score)
       // score += letterScore.keys(letterScore).find(key => letterScore[key] === letter)
-    }
   }
+  
   if (word.length >= 7) {
     score += 8
   }
@@ -110,13 +110,20 @@ export const highestScoreFrom = (words) => {
     if (tempScore > highestScore) {
       highestScore = tempScore
       bestWord = word
+      console.log(word, "replaced word based on score")
+
     } else if (tempScore === highestScore) {
-      if(bestWord.length !== 10 && word.length === 10){
+      console.log("word: ", word, word.length)
+      console.log("best word: ",bestWord, bestWord.length)
+      if(bestWord.length != 10 && (word.length === 10 || word.length < bestWord.length)){
         bestWord = word
-      } else if (word.length < bestWord.length) {
-        bestWord = word
+        // console.log(word, "replaced word because its length is 10")
+      // } else if (word.length < bestWord.length && bestWord.length !== 10) {
+      //   bestWord = word
+      //   console.log(word, "replaced word because it was shorter")
       }
     }
+
   }
   return {"score": highestScore, "word": bestWord}
 };
