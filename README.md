@@ -42,7 +42,7 @@ If we get a message about `gyp: No Xcode or CLT version`, we also won't worry ab
 
 ### Tests
 
-We have provided unit tests for you to run. A complete project will pass all provided tests in the `test/adagrams.test.js` file. The other tests are for game logic that is provided and they may pass or fail depending upon the state of your code. However, you should focus on just the tests in `test/adagrams.test.js`.
+We have provided unit tests for you to run. As a reminder, a few of these unit tests are incomplete and currently throw exceptions. You should complete any incomplete tests and remove the exception. A complete project will pass all provided tests in the `test/adagrams.test.js` file. The other tests are for game logic that is provided and they may pass or fail depending upon the state of your code. However, you should focus on just the tests in `test/adagrams.test.js`.
 
 To run the tests, in the command line, navigate to the project root and then run:
 
@@ -200,9 +200,9 @@ This Wave has 3 parts:
 
 #### What If I Don't Finish This Wave?
 
-You are encouraged the leave the pseudocode as comments for this wave if you begin this wave and don't finish it. The goal for this wave is to practice translating logic to new JavaScript syntax.
+If you do not finish part 3 of this wave (translating the pseudocode for `highestScoreFrom` to JavaScript), you are encouraged the leave the pseudocode as comments in your project submission. The goal for this wave is to practice translating logic to new JavaScript syntax.
 
-Our primary goal here is to see your practice and thought process with pseudocode, and we will review accordingly with respect to the practice and work put into the project overall, even if this wave isn't finished. If you got stuck, please reflect on you process and where you got stuck in the reflection questions when you submit to project
+Our primary goal here is to see your practice and thought process, and we will review accordingly with respect to the practice and work put into the project overall, even if this wave isn't finished. If you got stuck, please reflect on your process and where you got stuck in the reflection questions when you submit to project.
 
 Please ensure that your tests still run before project submission, of course. :)
 
